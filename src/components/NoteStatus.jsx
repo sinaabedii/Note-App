@@ -11,20 +11,22 @@ function NoteStatus() {
   if (!allNotes)
     return (
       <Message>
-       <span>No Notes has already been added.</span>
+        <span className="">
+          No Notes has already been added.
+        </span>
       </Message>
     );
 
   return (
-    <ul className="note-status">
+    <ul className="mx-4 items-center flex justify-between ">
       <li>
-        All <span>{allNotes}</span>
+        All : <span>{allNotes}</span>
       </li>
       <li>
-        Completed <span>{completedNotes}</span>
+        Completed : <span>{completedNotes}</span>
       </li>
       <li>
-        Open <span>{unCompletedNotes}</span>
+        Open : <span>{unCompletedNotes}</span>
       </li>
     </ul>
   );

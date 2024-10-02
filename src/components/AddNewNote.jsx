@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNotesDispatch } from "../context/NotesContext";
-import toast from "react-hot-toast";
 
 function AddNewNote() {
   const dispatch = useNotesDispatch();
@@ -20,11 +19,6 @@ function AddNewNote() {
     dispatch({ type: "add", payload: newNote });
     setTtile("");
     setDescription("");
-  };
-  const addHandler = () => {
-    if (title && description) {
-      toast.success("اضافه شد");
-    }
   };
 
   return (
@@ -46,7 +40,6 @@ function AddNewNote() {
           placeholder="description"
         />
         <button
-          onClick={addHandler}
           type="submit"
           className="bg-red-400 mb-3 rounded w-fit px-3 py-1 font-semibold "
         >

@@ -20,8 +20,8 @@ function NoteList({ sortBy, onSort }) {
     );
 
   return (
-    <div className="note-list">
-      <select value={sortBy} onChange={onSort}>
+    <div className="">
+      <select value={sortBy} onChange={onSort} className="mx-2 rounded">
         <option value="latest">Sort based on latest notes</option>
         <option value="earliest">Sort based on earliest notes</option>
         <option value="completed">Sort based on completed notes</option>
@@ -45,18 +45,17 @@ function NoteItem({ note }) {
   };
 
   return (
-    <div className={`note-item ${note.completed ? "completed" : ""}`}>
-      <div className="note-item__header">
-        <div>
+    <div className={`${note.completed ? "line-through" : "flex gap-3 mx-3 justify-between"}`}>
+      <div className="flex gap-3 justify-between w-full">
+        <div className="flex gap-3 ">
+          
           <p className="title">{note.title}</p>
           <p className="desc">{note.description}</p>
         </div>
-        <div className="actions">
-          <button
-            onClick={() => dispatch({ type: "delete", payload: note.id })}
-          >
-            ❌
-          </button>
+        <p >
+          {new Date(note.createdAt).toLocaleDateString("en-US", options)}
+        </p>
+        <div >
           <input
             type="checkbox"
             name={note.id}
@@ -70,9 +69,9 @@ function NoteItem({ note }) {
           />
         </div>
       </div>
-      <p className="note-item__footer">
-        {new Date(note.createdAt).toLocaleDateString("en-US", options)}
-      </p>
+        <button onClick={() => dispatch({ type: "delete", payload: note.id })}>
+          ❌
+        </button>
     </div>
   );
 }

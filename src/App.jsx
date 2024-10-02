@@ -14,7 +14,7 @@ function App() {
         <NoteHeader />
         <div className="mx-auto">
           <AddNewNote />
-          <div>
+          <div className="w-full mx-auto bg-red-200 ">
             <NoteStatus />
             <NoteList
               sortBy={sortBy}
